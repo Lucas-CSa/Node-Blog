@@ -89,6 +89,16 @@ router.post("/cat/edit", (req, res)=>{
 
 })
 
+router.post("/cat/delete", (req, res)=>{
+    Category.remove({_id: req.body.id}).then(() => {
+        req.flash("success_msg", "Category succefully deleted")
+        res.redirect("/admin/cat")
+    }).catch((err) => {
+        req.flash("error_msg", "There was an error deleting this category")
+        res.redirect("/admin/cat")
+    })
+})
+
 
 router.get("/cat/edit/:id", (req, res) => {
     Category.findOne({_id: req.params.id}).then((category) =>{
@@ -97,6 +107,10 @@ router.get("/cat/edit/:id", (req, res) => {
         req.flash("error_msg", "This Category does not exists")
         res.redirect("admin/cat")
     })
+    
+})
+
+router.get("/post", (req, res) => {
     
 })
 

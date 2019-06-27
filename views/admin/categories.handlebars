@@ -8,9 +8,13 @@
             <small>Slug: {{slug}}</small><br>
             <small>Creation Date: {{date}}</small><br>
             <a href="/admin/cat/edit/{{_id}}"><button class="btn btn-success mt-2">Edit Category</button></a>
+            <form action="/admin/cat/delete" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button class="btn btn-danger mt-2">Delete</button>
+            </form>
         </div>
     </div>
     <hr>
 {{else}}
-
+    <h4 class="mt-4">There's no categories registered</h4>
 {{/each}}

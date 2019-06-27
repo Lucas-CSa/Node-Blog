@@ -36,7 +36,7 @@
         }).then(function(){
             console.log('MongoDB Up')
         }).catch((err) => {
-            console.err("ERROR -> "+err)
+            console.error("ERROR -> "+err)
         });
     //Public
     app.use(express.static(path.join(__dirname, "public")));
